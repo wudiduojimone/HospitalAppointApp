@@ -104,26 +104,30 @@ public class Doctor extends User {
 
     public void doctorOperator() {
         while (true) {
-            System.out.println("-------------");
-            System.out.println("1、我的信息");
-            System.out.println("2、排班");
-            System.out.println("3、查看当前排班");
-            System.out.println("4、退出");
-            int option = sc.nextInt();
-            switch (option) {
-                case 1:
-                    printUserInfo();
-                    break;
-                case 2:
-                    arrangeSchedule();
-                    break;
-                case 3:
-                    printDoctorInfo();
-                    break;
-                case 4:
-                    return;
-                default:
-                    System.out.println("您的输入有误，请重新输入");
+            try {
+                System.out.println("----医生操作界面----");
+                System.out.println("1、我的信息");
+                System.out.println("2、排班");
+                System.out.println("3、查看当前排班");
+                System.out.println("4、退出");
+                int option = sc.nextInt();
+                switch (option) {
+                    case 1:
+                        printUserInfo();
+                        break;
+                    case 2:
+                        arrangeSchedule();
+                        break;
+                    case 3:
+                        printDoctorInfo();
+                        break;
+                    case 4:
+                        return;
+                    default:
+                        System.out.println("您的输入有误，请重新输入");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("非法输入，请重新输入：");
             }
         }
     }

@@ -34,26 +34,30 @@ public class Patient extends User {
     public void patientOperator(ArrayList<Doctor> doctorList) {
         OUT:
         while (true) {
-            System.out.println("-------------");
-            System.out.println("1、我的信息");
-            System.out.println("2、挂号");
-            System.out.println("3、挂号记录");
-            System.out.println("4、退出");
-            int option = sc.nextInt();
-            switch (option) {
-                case 1:
-                    printUserInfo();
-                    break;
-                case 2:
-                    appoint(doctorList);
-                    break;
-                case 3:
-                    showAppointRecord();
-                    break;
-                case 4:
-                    break OUT;
-                default:
-                    System.out.println("您的输入有误，请重新输入");
+            try {
+                System.out.println("-------------");
+                System.out.println("1、我的信息");
+                System.out.println("2、挂号");
+                System.out.println("3、挂号记录");
+                System.out.println("4、退出");
+                int option = sc.nextInt();
+                switch (option) {
+                    case 1:
+                        printUserInfo();
+                        break;
+                    case 2:
+                        appoint(doctorList);
+                        break;
+                    case 3:
+                        showAppointRecord();
+                        break;
+                    case 4:
+                        break OUT;
+                    default:
+                        System.out.println("您的输入有误，请重新输入");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("非法输入，请重新输入：");
             }
         }
     }
